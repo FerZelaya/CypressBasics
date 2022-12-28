@@ -1,0 +1,24 @@
+{
+  "name": "cypressbasics",
+  "version": "1.0.0",
+  "description": "Cypress Basics",
+  "main": "index.js",
+  "scripts": {
+    "runner": "cypress open --e2e --browser chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FerZelaya/CypressBasics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FerZelaya/CypressBasics/issues"
+  },
+  "homepage": "https://github.com/FerZelaya/CypressBasics#readme",
+  "dependencies": {
+    "cypress": "^12.1.0",
+    "cypress-real-events": "^1.7.4",
+    "typescript": "^4.9.4"
+  }
+}

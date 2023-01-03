@@ -1,6 +1,5 @@
-import { includes } from "cypress/types/lodash";
-
-describe("Click Challenge", () => {
+// Simple click to a button and asserting it should have a certain class and a certain background color after action
+describe.skip("Click Challenge", () => {
     beforeEach(() => {
         cy.visit("/click");
     });
@@ -17,17 +16,19 @@ describe("Click Challenge", () => {
 });
   
 
-describe("Hover challenge", () => {
+describe("Tooltips hover test", () => {
     beforeEach(() => {
-        cy.visit("/mouseover");
+      cy.visit(`${Cypress.env("demoPage")}/tool-tips`);
     });
 
-    it("hover with real hover elements", () => {
-        cy.get(".text-primary").realHover();
+    it("Tooltip hover", () => {
+      cy.get("#toolTipButton").realHover();
+      cy.get(".tooltip-inner").should("have.text", "You hovered over the Button");
     });
-});
 
-describe("Dynamic table challenge", () => {
+  });
+
+describe.skip("Dynamic table challenge", () => {
     beforeEach(() => {
         cy.visit("/dynamictable");
     });

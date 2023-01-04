@@ -3,7 +3,7 @@
 */
 
 // Simple click to a button and asserting it should have a certain class and a certain background color after action
-describe.skip("Click test", () => {
+describe("Click test", () => {
   beforeEach(() => {
     cy.visit("/click");
   });
@@ -19,6 +19,23 @@ describe.skip("Click test", () => {
   });
 });
 
+//Selects a radio button and asserts the text
+describe.skip("Radio Buttons test", () => {
+  beforeEach(() => {
+    cy.visit(`${Cypress.env("demoPage")}/radio-button`);
+  });
+
+  it("Radio button 'Yes'", () => {
+    cy.get("#yesRadio").click({ force: true }).should("be.checked");
+    cy.get("div").find("p").should("have.text", "You have selected Yes");
+  });
+
+  it("Radio button 'Impressive'", () => {
+    cy.get("#impressiveRadio").click({ force: true }).should("be.checked");
+    cy.get("div").find("p").should("have.text", "You have selected Impressive");
+  });
+});
+
 //Hover over button to show a tooltip
 describe.skip("Tooltips hover test", () => {
   beforeEach(() => {
@@ -31,31 +48,21 @@ describe.skip("Tooltips hover test", () => {
   });
 });
 
-//Dynamic table test to always get the Chrome percentage
-describe("Dynamic table test to always get Chrome CPU percentage", () => {
-  beforeEach(() => {
-    cy.visit("/dynamictable");
+//Checks a checkbox and asserts a text
+describe.skip("Checkboxes test", () => {
+  Cypress.on("uncaught:exception", (err, runnable) => {
+    return false;
   });
 
-  it("Get Chrome CPU test", () => {
-    cy.get(`div[role="row"] span`).each(($cell) => {
-      if ($cell.text().includes("Chrome")) {
-        cy.log(`${$cell.text()} row`);
-        let chomeValues: string[] = [];
-        chomeValues.push($cell.next().text());
-        chomeValues.push($cell.next().next().text());
-        chomeValues.push($cell.next().next().next().text());
-        chomeValues.push($cell.next().next().next().next().text());
+  beforeEach(() => {
+    cy.visit(`${Cypress.env("demoPage")}/checkbox`);
+  });
 
-        chomeValues.forEach((chromeValue) => {
-          if (chromeValue.includes("%")) {
-            cy.get(".bg-warning").should(
-              "have.text",
-              `Chrome CPU: ${chromeValue}`
-            );
-          }
-        });
-      }
-    });
+  it("Check a checkbox", () => {
+    cy.get("#tree-node-home").click({ force: true }).should("be.checked");
+    cy.get("#result").should(
+      "have.text",
+      "You have selected :homedesktopnotescommandsdocumentsworkspacereactangularveuofficepublicprivateclassifiedgeneraldownloadswordFileexcelFile",
+    );
   });
 });

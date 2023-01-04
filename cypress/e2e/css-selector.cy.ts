@@ -3,7 +3,7 @@ describe("css-selector",()=>{
         cy.visit("/dynamicid")
     })
 
-    it('Cy.get + cy.find ', () => {
+    it('cy.find example', () => {
         cy.get('div').find('button').should(
             "have.text",
             "Button with Dynamic ID"

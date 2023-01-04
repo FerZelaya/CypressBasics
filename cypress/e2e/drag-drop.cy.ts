@@ -1,9 +1,5 @@
 //Drag and dropt test
 describe("Drag and Drop test", () => {
-  Cypress.on("uncaught:exception", (err, runnable) => {
-    return false;
-  });
-
   beforeEach(() => {
     cy.visit(`${Cypress.env("demoPage")}/droppable`);
   });

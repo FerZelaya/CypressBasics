@@ -6,7 +6,8 @@
       "cypress",
       "node",
       "cypress-real-events",
-      "@4tw/cypress-drag-drop"
+      "@4tw/cypress-drag-drop",
+      "@testing-library/cypress"
     ]
   },
   "include": ["**/*.ts"]

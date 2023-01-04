@@ -1,9 +1,4 @@
 describe("Double click test", () => {
-
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-  })
-
   beforeEach(() => {
     cy.visit(`${Cypress.env("demoPage")}/buttons`);
   });
@@ -13,7 +8,7 @@ describe("Double click test", () => {
     cy.get("#doubleClickBtn").dblclick();
     cy.get("#doubleClickMessage").should(
       "have.text",
-      "You have done a double click"
+      "You have done a double click",
     );
   });
 
@@ -22,8 +17,7 @@ describe("Double click test", () => {
     cy.get("#rightClickBtn").rightclick();
     cy.get("#rightClickMessage").should(
       "have.text",
-      "You have done a right click"
+      "You have done a right click",
     );
   });
-
 });

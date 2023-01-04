@@ -50,10 +50,6 @@ describe.skip("Tooltips hover test", () => {
 
 //Checks a checkbox and asserts a text
 describe.skip("Checkboxes test", () => {
-  Cypress.on("uncaught:exception", (err, runnable) => {
-    return false;
-  });
-
   beforeEach(() => {
     cy.visit(`${Cypress.env("demoPage")}/checkbox`);
   });

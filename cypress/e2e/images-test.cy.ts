@@ -3,10 +3,6 @@ let imageElement: HTMLImageElement;
 
 //Valid and broken image test
 describe("Image test", () => {
-  Cypress.on("uncaught:exception", (err, runnable) => {
-    return false;
-  });
-
   beforeEach(() => {
     cy.visit(`${Cypress.env("demoPage")}/broken`);
   });

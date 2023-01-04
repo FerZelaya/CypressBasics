@@ -1,10 +1,6 @@
 //Test if the modal is showing correctly
 
 describe("Drag and Drop test", () => {
-  Cypress.on("uncaught:exception", (err, runnable) => {
-    return false;
-  });
-
   beforeEach(() => {
     cy.visit(`${Cypress.env("demoPage")}/modal-dialogs`);
   });

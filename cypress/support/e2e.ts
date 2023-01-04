@@ -15,8 +15,10 @@
 
 // Import commands.js using ES2015 syntax:
 import "./commands";
+import "./exceptions";
 import "cypress-real-events/support";
 import "@4tw/cypress-drag-drop";
+import "@testing-library/cypress/add-commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

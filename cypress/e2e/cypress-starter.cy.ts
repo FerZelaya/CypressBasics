@@ -1,4 +1,5 @@
-describe('empty spec', () => {
+//Simple text input test
+describe('Text input simple test', () => {
   
   beforeEach(()=>{
     cy.visit("/textinput")

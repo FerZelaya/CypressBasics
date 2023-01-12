@@ -15,7 +15,7 @@ describe("<MovieList />", () => {
     moviesTable.children().should("have.length", 0);
   });
 
-  //Clicks tha Load button to get movies
+  //Clicks the Load button to get movies
   it("Check table with data", () => {
     const button = cy.get("[data-cy=loadButton]");
     const moviesTable = cy.get("[data-cy=moviesTable]");

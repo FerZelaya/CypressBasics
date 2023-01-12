@@ -11,6 +11,8 @@ export default defineConfig({
   chromeWebSecurity: false,
 
   component: {
+    viewportHeight: 1080,
+    viewportWidth: 1920,
     devServer: {
       framework: "create-react-app",
       bundler: "webpack",

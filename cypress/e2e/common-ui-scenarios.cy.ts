@@ -37,7 +37,7 @@ describe.skip("Radio Buttons test", () => {
 });
 
 //Hover over button to show a tooltip
-describe.skip("Tooltips hover test", () => {
+describe("Tooltips hover test", () => {
   beforeEach(() => {
     cy.visit(`${Cypress.env("demoPage")}/tool-tips`);
   });

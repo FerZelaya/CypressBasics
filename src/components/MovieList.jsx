@@ -13,6 +13,7 @@ const options = {
 
 const MovieList = () => {
   const [moviesData, setMoviesData] = useState([]);
+  const [moviesExist, setMoviesExist] = useState(false);
 
   const getMovies = async () => {
     const moviesToSave = [];
@@ -26,6 +27,7 @@ const MovieList = () => {
           };
           moviesToSave.push(movie);
         });
+        setMoviesExist(true);
       })
       .catch(function (error) {
         console.error(error);
@@ -33,17 +35,23 @@ const MovieList = () => {
     setMoviesData(moviesToSave);
   };
 
+  const clearMovies = () => {
+    setMoviesData([]);
+    setMoviesExist(false);
+  };
+
   return (
     <div className="container-fluid min-vh-100 overflow-y-scroll text-center bg-dark d-flex flex-column justify-content-evenly align-items-center p-5">
       <Header />
       <div className="w-50 cursor-pointer d-flex justify-content-center  align-items-center flex-column">
         <button
-          data-cy="loadButton"
-          disabled={moviesData.length > 0 ?? true}
+          data-cy="loadOrClearButton"
           className="w-50 m-5 btn-primary btn"
-          onClick={() => getMovies()}
+          onClick={() => {
+            moviesData.length > 0 ? clearMovies() : getMovies();
+          }}
         >
-          Load movies
+          {moviesExist ? "Clear movies" : "Load movies"}
         </button>
         <table
           data-cy="moviesTable"

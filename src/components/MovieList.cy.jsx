@@ -9,21 +9,29 @@ describe("<MovieList />", () => {
   //Table should be empty at first
   it("Check empty table", () => {
     cy.get("[data-cy=emptyMovieList]").should("exist").contains("No Movies");
-    const button = cy.get("[data-cy=loadButton]");
     const moviesTable = cy.get("[data-cy=moviesTable]");
-    button.should("not.be.disabled");
     moviesTable.children().should("have.length", 0);
   });
 
   //Clicks the Load button to get movies
-  it("Check table with data", () => {
-    const button = cy.get("[data-cy=loadButton]");
+  it("Check table with movies data", () => {
+    const button = cy.get("[data-cy=loadOrClearButton]");
     const moviesTable = cy.get("[data-cy=moviesTable]");
     button.click();
-    button.should("be.disabled");
+    button.should("have.text", "Clear movies");
     const moviesRows = moviesTable.children("tbody").find("tr");
     moviesRows.should("have.length", 20);
     moviesRows.children().should("have.length", 40);
+  });
+
+  //Clear all movies
+  it("Clear movies", () => {
+    const button = cy.get("[data-cy=loadOrClearButton]");
+    button.click();
+    button.should("have.text", "Load movies");
+    cy.get("[data-cy=emptyMovieList]").should("exist").contains("No Movies");
+    const moviesTable = cy.get("[data-cy=moviesTable]");
+    moviesTable.children().should("have.length", 0);
   });
 });
 

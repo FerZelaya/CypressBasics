@@ -48,7 +48,7 @@ const MovieList = () => {
           data-cy="loadOrClearButton"
           className="w-50 m-5 btn-primary btn"
           onClick={() => {
-            moviesData.length > 0 ? clearMovies() : getMovies();
+            moviesExist ? clearMovies() : getMovies();
           }}
         >
           {moviesExist ? "Clear movies" : "Load movies"}
@@ -57,7 +57,7 @@ const MovieList = () => {
           data-cy="moviesTable"
           className="table table-dark table-striped text-white"
         >
-          {moviesData.length > 0 && (
+          {moviesExist && (
             <>
               <thead>
                 <tr>

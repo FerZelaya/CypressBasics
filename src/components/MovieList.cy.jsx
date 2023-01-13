@@ -28,6 +28,8 @@ describe("<MovieList />", () => {
   it("Clear movies", () => {
     const button = cy.get("[data-cy=loadOrClearButton]");
     button.click();
+    button.should("have.text", "Clear movies");
+    button.click();
     button.should("have.text", "Load movies");
     cy.get("[data-cy=emptyMovieList]").should("exist").contains("No Movies");
     const moviesTable = cy.get("[data-cy=moviesTable]");
